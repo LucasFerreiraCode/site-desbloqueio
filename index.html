@@ -243,11 +243,13 @@
             margin-bottom: 10px;
         }
 
-        /* Ajustes responsivos para garantir que a logo-fundo fique inteira em telas menores */
-        @media (max-width: 900px) {
+        /* Ajustes responsivos consolidados para diferentes dispositivos */
+        @media (max-width: 1200px) {
             body {
-                background-size: 70%;
+                /* reduzir a logo no background para telas menores */
+                background-size: 55% auto;
                 background-position: top center;
+                background-attachment: scroll;
             }
 
             header {
@@ -255,22 +257,111 @@
             }
 
             header h1 {
-                font-size: 2.6rem;
+                font-size: 2.8rem;
+            }
+        }
+
+        @media (max-width: 900px) {
+            body {
+                background-size: 70% auto;
+                background-position: top center;
+                background-attachment: scroll; /* evita comportamento estranho em mobile */
+            }
+
+            header {
+                padding-top: 140px;
+            }
+
+            header h1 {
+                font-size: 2.2rem;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            nav ul {
+                gap: 18px;
+                flex-wrap: wrap;
+            }
+
+            .container {
+                max-width: 95vw;
+                padding: 18px 2vw;
+            }
+        }
+
+        @media (max-width: 700px) {
+            body {
+                background-size: 85% auto;
+            }
+
+            header {
+                padding-top: 100px;
+            }
+
+            header h1 {
+                font-size: 1.8rem;
+            }
+
+            nav {
+                padding: 10px 0;
+            }
+
+            nav ul {
+                flex-direction: row;
+                gap: 12px;
+            }
+
+            .feedback-grid,
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .container {
+                padding: 12px 4vw;
             }
         }
 
         @media (max-width: 480px) {
             body {
-                background-size: 58%;
+                background-size: 95% auto;
                 background-position: top center;
             }
 
             header {
-                padding-top: 120px;
+                padding-top: 80px;
             }
 
             header h1 {
-                font-size: 2rem;
+                font-size: 1.6rem;
+            }
+
+            .section-title {
+                font-size: 1.2rem;
+            }
+
+            .feedback-card {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .avatar {
+                margin-bottom: 8px;
+            }
+
+            .whatsapp-fixed {
+                right: 10px;
+                bottom: 10px;
+                padding: 10px 12px;
+                font-size: 1rem;
+            }
+
+            nav ul {
+                flex-direction: row;
+                gap: 10px;
+                justify-content: center;
             }
         }
 
