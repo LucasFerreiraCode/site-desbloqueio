@@ -4,13 +4,13 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Desbloqueio Android - Lucas Ferreira</title>
+    <title>Desbloqueio Especializado - Lucas Ferreira</title>
 
     <!-- Scroll Reveal -->
     <script src="https://unpkg.com/scrollreveal"></script>
 
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@400;600;700;800&display=swap');
 
         :root {
             --cor1: #00eaff;
@@ -103,13 +103,27 @@
             /* apenas ocultar visualmente, preservando o elemento no DOM */
             opacity: 0;
             pointer-events: none;
-            height: 0.1px; /* reduz altura visualmente, evita quebra de layout */
+            height: 0.1px;
+            /* reduz altura visualmente, evita quebra de layout */
             overflow: hidden;
             position: relative;
         }
 
         header h1 {
-            font-size: 2.8rem;
+            /* fonte para um visual mais profissional e moderno */
+            font-family: 'Poppins', 'Inter', sans-serif;
+            font-weight: 700;
+            font-size: 3.2rem;
+            margin: 12px 0 0;
+            line-height: 1.05;
+            letter-spacing: 0.2px;
+            /* texto com gradiente usando as cores do tema */
+            background: linear-gradient(90deg, var(--cor1), var(--cor2));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            /* profundidade atrás do título */
+            text-shadow: 0 8px 22px rgba(0, 0, 0, 0.55);
         }
 
         /* CONTAINER */
@@ -178,8 +192,8 @@
             border-radius: 50%;
             object-fit: cover;
             flex-shrink: 0;
-            box-shadow: 0 6px 18px rgba(0,0,0,0.4);
-            border: 2px solid rgba(255,255,255,0.06);
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
+            border: 2px solid rgba(255, 255, 255, 0.06);
         }
 
         .feedback-content {
@@ -239,6 +253,10 @@
             header {
                 padding-top: 160px;
             }
+
+            header h1 {
+                font-size: 2.6rem;
+            }
         }
 
         @media (max-width: 480px) {
@@ -249,6 +267,10 @@
 
             header {
                 padding-top: 120px;
+            }
+
+            header h1 {
+                font-size: 2rem;
             }
         }
     </style>
@@ -270,7 +292,7 @@
 
     <header>
         <img src="./img/LF - logo anonymous.png" alt="Logo" />
-        <h1>Desbloqueio Profissional Android</h1>
+        <h1>Desbloqueio Especializado</h1>
     </header>
 
     <div id="servico" class="container">
@@ -286,7 +308,6 @@
             <div class="service-card">Remoção de Conta Google (FRP)</div>
             <div class="service-card">Desbloqueio de Senha / PIN / Padrão</div>
             <div class="service-card">Formatação Completa</div>
-            <div class="service-card">Restauração de Sistema</div>
         </div>
     </div>
 
@@ -297,7 +318,8 @@
                 <img class="avatar" src="https://i.pravatar.cc/80?img=32" alt="Foto de Mariana" />
                 <div class="feedback-content">
                     <div class="feedback-name">Mariana</div>
-                    <div class="feedback-text">Excelente serviço! Entregou rápido e com muita atenção aos detalhes.</div>
+                    <div class="feedback-text">Excelente serviço! Entregou rápido e com muita atenção aos detalhes.
+                    </div>
                 </div>
             </div>
 
