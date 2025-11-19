@@ -86,6 +86,22 @@
             font-weight: bold;
         }
 
+        /* Botão Hamburger para mobile */
+        .nav-toggle {
+            display: none;
+            position: fixed;
+            top: 14px;
+            left: 18px;
+            background: transparent;
+            border: 2px solid rgba(255, 255, 255, 0.06);
+            color: var(--cor1);
+            padding: 8px 10px;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
         /* HEADER */
         header {
             text-align: center;
@@ -202,6 +218,19 @@
         }
 
         .feedback-name {
+
+            nav ul li a {
+                display: block;
+                padding: 10px 12px;
+                color: var(--cor1);
+                background: rgba(255,255,255,0.02);
+                border-radius: 8px;
+                text-align: center;
+            }
+
+            nav ul li a:hover {
+                background: rgba(255,255,255,0.04);
+            }
             font-weight: 700;
             margin-bottom: 6px;
             color: var(--cor1);
@@ -265,7 +294,8 @@
             body {
                 background-size: 70% auto;
                 background-position: top center;
-                background-attachment: scroll; /* evita comportamento estranho em mobile */
+                background-attachment: scroll;
+                /* evita comportamento estranho em mobile */
             }
 
             header {
@@ -412,9 +442,31 @@
                 grid-template-columns: 1fr;
             }
 
+            /* mobile: esconder menu por padrão e usar o hamburger */
+            .nav-toggle {
+                display: block;
+            }
+
+            /* garantir que o menu fique escondido por padrão no mobile (forçar override se necessário) */
             nav ul {
+                display: none !important;
+                position: absolute;
+                top: 56px;
+                left: 50%;
+                transform: translateX(-50%);
+                width: calc(100% - 40px);
                 flex-direction: column;
                 gap: 10px;
+                background: rgba(0, 0, 0, 0.7);
+                padding: 12px;
+                border-radius: 10px;
+                list-style: none;
+                z-index: 1000;
+                box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+            }
+
+            nav.open ul {
+                display: flex !important;
             }
         }
 
@@ -456,6 +508,7 @@
     <div class="theme-toggle" onclick="toggleTheme()">Tema</div>
 
     <nav>
+        <button class="nav-toggle" aria-expanded="false" aria-label="Abrir menu" onclick="toggleNav()">☰</button>
         <ul>
             <li><a href="#servico">Serviço</a></li>
             <li><a href="#extras">Extras</a></li>
@@ -546,6 +599,13 @@
         function toggleTheme() {
             const body = document.body;
             body.dataset.theme = body.dataset.theme === "light" ? "dark" : "light";
+        }
+
+        function toggleNav() {
+            const nav = document.querySelector('nav');
+            const btn = document.querySelector('.nav-toggle');
+            const isOpen = nav.classList.toggle('open');
+            btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
         }
 
         ScrollReveal().reveal('.container', { distance: '40px', duration: 800, easing: 'ease' });
